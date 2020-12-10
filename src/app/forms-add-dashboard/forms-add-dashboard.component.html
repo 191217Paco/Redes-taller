@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="boton5" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav " >
+        <li style="background-color: powderblue;">
+            <a class="nav-link" href="/addFormS">Agregar nuevo Formulario</a>
+        </li>
+        <li>
+            <a class="nav-link" href="/seeC">Ver servicio</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#">Regresar</a>
+        </li>                 
+        </ul>
+    </div>
+</nav>
+<div id="form1" style="width: fit-content; height: fit-content;">
+    <div class="form2" style="border-style: solid; border-width: 1px;">
+        <form>
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div>
+                    <div class="form-group">
+                        <label for="full_name_id" class="control-label">Nombres</label>
+                        <input  type="text" class="form-control" id="name" name="Nombre" [(ngModel)]="name" placeholder="John Deer">
+                    </div>    
+    
+                    <div class="form-group">
+                        <label for="street1_id" class="control-label">Apellidos</label>
+                        <input  type="text" class="form-control" id="lastname" name="apellidos" [(ngModel)]= "lastname" placeholder="Sultanito">
+                    </div>                    
+                                            
+                    <div class="d-flex flex-row bd-highlight mb-3">
+                        <div class="form-group">
+                            <label for="street2_id" class="control-label">Telefono</label>
+                            <input  type="text" class="form-control" id="phone" name="telefono" [(ngModel)]="phone" placeholder="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="street2_id" class="control-label">email</label>
+                            <input  type="text" class="form-control" id="email" name="correo" [(ngModel)]="email" placeholder="email">
+                        </div>
+                    </div>
+    
+                    <div class="d-flex flex-row bd-highlight mb-3">
+                        <div class="form-group">
+                            <label for="street2_id" class="control-label">Marca del Automovil</label>
+                            <input  type="text" class="form-control" id="Marca" name="Marca" [(ngModel)]="marca" placeholder="example@ Chevrolet">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="street2_id" class="control-label">Modelo</label>
+                            <input  type="text" class="form-control" id="Modelo" name="Modelo" [(ngModel)]="model_car" placeholder="example@ Chevrolet">
+                        </div>
+                    </div>
+                </div>
+                <div class="form2">
+                    <div class="form-group p-2 bd-highlight"> 
+                        <button type="submit" class="btn btn-primary"  >Agregar servicios</button>
+                    </div>
+                    <div class="form-group p-2 bd-highlight"> 
+                        <button type="submit" class="btn btn-primary"  >Agregar Refaciones a utilizar</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group p-2 bd-highlight"> 
+              <button type="submit" class="btn btn-primary" (click)="edit ?  putNote() : postNote()" >Salvar</button>
+            </div>     
+          
+            
+        </form>
+    </div>
+</div>

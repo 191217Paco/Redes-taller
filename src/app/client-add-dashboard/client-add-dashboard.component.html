@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <a class="boton5" href="#">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav " >
+      <li style="background-color: powderblue;">
+        <a class="nav-link" href="/addC">Agregar cliente</a>
+      </li>
+      <li>
+        <a class="nav-link" href="/seeC">Ver Clientes</a>
+      </li>
+      <li>
+        <a class="nav-link" href="#">Regresar</a>
+      </li>                 
+    </ul>
+  </div>
+</nav>
+<div id="form1">
+    <div id="form2">
+        <form>
+
+            <div class="form-group">
+                <label for="full_name_id" class="control-label">Nombres</label>
+                <input  type="text" class="form-control" id="name" name="Nombre" [(ngModel)]="name" placeholder="John Deer">
+            </div>    
+        
+            <div class="form-group">
+                <label for="street1_id" class="control-label">Apellidos</label>
+                <input  type="text" class="form-control" id="lastname" name="apellidos" [(ngModel)]= "lastname" placeholder="Sultanito">
+            </div>                    
+                                    
+            <div class="form-group">
+                <label for="street2_id" class="control-label">Telefono</label>
+                <input  type="text" class="form-control" id="phone" name="telefono" [(ngModel)]="phone" placeholder="phone">
+            </div>
+            
+            <div class="form-group">
+                <label for="street2_id" class="control-label">email</label>
+                <input  type="text" class="form-control" id="email" name="correo" [(ngModel)]="email" placeholder="email">
+            </div>
+<!--
+            <div class="form-group"> 
+                <input   type="file" class="form-control" id="image" name="" 
+                (change)="selectImage($event)" placeholder="agregar imagen">
+            </div>     
+-->
+            <div class="form-group p-2 bd-highlight"> 
+              <button type="submit" class="btn btn-primary" (click)="edit ? putClient():postClient()" >Salvar</button>
+            </div>     
+          
+            
+        </form>
+    </div>
+</div>
