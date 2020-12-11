@@ -33,10 +33,10 @@ export class ClientAddDashboardComponent implements OnInit {
  
 
   ngOnInit(): void {
-    this.id = parseInt(this.route.snapshot.paramMap.get("id"));
-    this.id = this.route.snapshot.paramMap.get("id");
-    /*
-    const params = this.activatedRoute.snapshot.params;
+    //this.id = parseInt(this.route.snapshot.paramMap.get("id"));
+    //this.id = this.route.snapshot.paramMap.get("id");
+    
+    const params = this.route.snapshot.params;
     this.CADbS.getClient(params.id).subscribe(
       res => {
         this.id = params.id;
@@ -44,7 +44,7 @@ export class ClientAddDashboardComponent implements OnInit {
         this.edit = true;
       },
       err => console.log(err)
-    )*/
+    )
   }
 
   /*selectImage(event:any){
@@ -67,6 +67,7 @@ export class ClientAddDashboardComponent implements OnInit {
     };
     this.CADbS.postClient(cliente).subscribe(
       res => {
+        console.log(res);
         this.router.navigate([
           '/'
         ]);

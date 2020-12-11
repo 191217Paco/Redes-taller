@@ -21,30 +21,16 @@
     <div class="form2" style="border-style: solid; border-width: 1px;">
         <form>
             <div class="d-flex flex-row bd-highlight mb-3">
-                <div>
-                    <div class="form-group">
-                        <label for="full_name_id" class="control-label">Nombres</label>
-                        <input  type="text" class="form-control" id="name" name="Nombre" [(ngModel)]="name" placeholder="John Deer">
-                    </div>    
+                <div style="padding: 1em 2em 1em 1em;">
+                    <label for="street2_id" class="control-label">Cliente</label>
+                    <select class="browser-default custom-select">
+                        <option selected="">Selecione el Cliente</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
     
-                    <div class="form-group">
-                        <label for="street1_id" class="control-label">Apellidos</label>
-                        <input  type="text" class="form-control" id="lastname" name="apellidos" [(ngModel)]= "lastname" placeholder="Sultanito">
-                    </div>                    
-                                            
-                    <div class="d-flex flex-row bd-highlight mb-3">
-                        <div class="form-group">
-                            <label for="street2_id" class="control-label">Telefono</label>
-                            <input  type="text" class="form-control" id="phone" name="telefono" [(ngModel)]="phone" placeholder="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="street2_id" class="control-label">email</label>
-                            <input  type="text" class="form-control" id="email" name="correo" [(ngModel)]="email" placeholder="email">
-                        </div>
-                    </div>
-    
-                    <div class="d-flex flex-row bd-highlight mb-3">
+                    <div>
                         <div class="form-group">
                             <label for="street2_id" class="control-label">Marca del Automovil</label>
                             <input  type="text" class="form-control" id="Marca" name="Marca" [(ngModel)]="marca" placeholder="example@ Chevrolet">
@@ -56,13 +42,42 @@
                         </div>
                     </div>
                 </div>
-                <div class="form2">
-                    <div class="form-group p-2 bd-highlight"> 
-                        <button type="submit" class="btn btn-primary"  >Agregar servicios</button>
+                <div>
+                    <div class="d-flex flex-row bd-highlight mb-3 ">
+                        <div class="d-flex flex-row bd-highlight mb-3">
+                            <label for="street2_id" class="control-label">Tipo</label>
+                            <select class="browser-default custom-select">
+                                <option selected="">Service or Spart</option>
+                                <option value="1">Servicio</option>
+                                <option value="2">Refaccion</option>
+                            </select>
+                            <label for="street2_id" class="control-label">Descripcion</label>
+                            <select class="browser-default custom-select">
+                                <option selected="">Selecione el Cliente</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>                                            
+                        </div>                                                             
                     </div>
-                    <div class="form-group p-2 bd-highlight"> 
-                        <button type="submit" class="btn btn-primary"  >Agregar Refaciones a utilizar</button>
-                    </div>
+                    <table class="table table-sm table-dark table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Precio</th>
+                            <!--<th scope="col">Handle</th>-->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                          </tr>
+                        </tbody>
+                    </table>   
                 </div>
             </div>
 

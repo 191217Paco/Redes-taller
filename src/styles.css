@@ -62,9 +62,10 @@ li {
   .cardL{
     width:300px; 
     border-radius: 15px;
-    margin-left: .5em;
+    margin-left: .9em;
+    margin-top: .5em;
     /*box-shadow: inset 0 0 20px rgba(49, 138, 172, 0.5);*/
-    box-shadow: 10px 5px 5px grey;
+    box-shadow: 10px 5px 5px rgb(116, 116, 116);
   }
   #bg {
     position: fixed;

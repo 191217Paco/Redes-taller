@@ -58,20 +58,23 @@ export class FormsAddDashboardComponent implements OnInit {
     this.fSADbS.postClient(cliente).subscribe(
       res => {
         this.client_id = res.content.id;
+        //console.log(this.client_id);
       }
     )
-    /*
+    
     const car  = {
       marca : this.marca,
       model_car : this.model_car,
       client_id : this.client_id
     }
+    car.client_id = this.client_id;
+    console.log(car);
     this.fSADbS.postCar(car).subscribe(
       res => {
         console.log(res);
         this.router.navigate(['/']);
       }
-    )*/
+    )
   }
 
 

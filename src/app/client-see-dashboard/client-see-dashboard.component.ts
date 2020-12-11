@@ -14,10 +14,10 @@ export class ClientSeeDashboardComponent implements OnInit {
   constructor(public clientSBdS: ClientSeeDashboardService, public router: Router) { }
 
   ngOnInit(): void {
-    this.getClient();
+    this.getClients();
   }
 
-  getClient() {
+  getClients() {
     this.clientSBdS.getClients().subscribe(
       res => {
         this.content = res;
@@ -29,7 +29,7 @@ export class ClientSeeDashboardComponent implements OnInit {
   deleteClient(id: string) {
     this.clientSBdS.deleteClient(id).subscribe(
       res => {
-        this.getClient();
+        this.getClients();
       }
     )
   }
