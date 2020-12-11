@@ -15,23 +15,44 @@ export class FormsAddDashboardService {
   postClient(client : Cliente): Observable<any>{
     return this.Http.post( environment.apiUrl+'/clients',client);
   }
-  putClient(client : Cliente): Observable<any>{
-    return this.Http.put( environment.apiUrl+'/clients/'+client.id,client);
-  }
-  getClient(id:any){
-    return this.Http.get(environment.apiUrl+'/clients/'+id);
-  }
-
-
+  
   postCar(car : Car): Observable<any>{
     return this.Http.post(environment.apiUrl+'/cars',car);
+  }
+
+  
+  
+
+  putClient(client : Cliente): Observable<any>{
+    return this.Http.put( environment.apiUrl+'/clients/'+client.id,client);
   }
   putCar(car : Car): Observable<any>{
     return this.Http.put(environment.apiUrl+'/cars/'+car.id,car);
   }
-  getCar(id:string){
-    return this.Http.get('https://redes-back-app.herokuapp.com/cars/'+id);
+
+
+  getClient(id:any){
+    return this.Http.get(environment.apiUrl+'/clients/'+id);
   }
+  getAllClients(){
+    return this.Http.get(environment.apiUrl+'/clients');
+  }
+  getCar(id:string){
+    return this.Http.get(environment.apiUrl+'/cars/'+id);
+  }
+  getService(id : any){
+    return this.Http.get(environment.apiUrl+'/services/'+id);
+  }
+  getAllServices(){
+    return this.Http.get(environment.apiUrl+'/services');
+  } 
+  getSpare_part(id:any){
+    return this.Http.get(environment.apiUrl+'/spare_parts/'+id);
+  }
+  getAllSpare_parts(){
+    return this.Http.get(environment.apiUrl+'/spare_parts');
+  }
+
 
 
 

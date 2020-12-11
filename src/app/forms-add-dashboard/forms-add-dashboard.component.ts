@@ -11,6 +11,9 @@ import {  Cliente } from '../models/Client'
 })
 export class FormsAddDashboardComponent implements OnInit {
   clients : any = [];
+  services : any = [];
+  spart_parts : any = [];
+
   cars : any = [];
   id : any; 
 
@@ -35,17 +38,33 @@ export class FormsAddDashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getClients();
     const params = this.activateRouter.snapshot.params;
-    this.fSADbS.getClient(params.id).subscribe(
+    if(params.id != undefined){
+      this.fSADbS.getClient(params.id).subscribe(
+        res => {
+          this.id = params.id;
+          this.clients = res;
+          this.edit = true;
+        },
+        err => console.log(err)
+      )
+    }
+    
+  }
+  onChange(value:any){
+    console.log(value)
+  }
+  getClients(){
+    this.fSADbS.getAllClients().subscribe(
       res => {
-        this.id = params.id;
-        this.clients = res;
-        this.edit = true;
-      },
-      err => console.log(err)
+        this.clients = res
+        console.log(res);
+      }
     )
   }
-  
+
+
   postNote(){
     const cliente = {
       id : '',
