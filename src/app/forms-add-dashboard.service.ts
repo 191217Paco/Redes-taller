@@ -9,15 +9,20 @@ import { environment } from '../environments/environment'
   providedIn: 'root'
 })
 export class FormsAddDashboardService {
-
-  constructor(protected Http : HttpClient) { }
+  headers : any;
+  constructor(protected Http : HttpClient) { 
+    this.headers = new HttpHeaders({
+      'Accept':"application/json",
+      'Authorization':"Bearer "+localStorage.getItem('token')
+    })
+  }
 
   postClient(client : Cliente): Observable<any>{
-    return this.Http.post( environment.apiUrl+'/clients',client);
+    return this.Http.post( environment.apiUrl+'/clients',client,{headers : this.headers});
   }
   
   postCar(car : Car): Observable<any>{
-    return this.Http.post(environment.apiUrl+'/cars',car);
+    return this.Http.post(environment.apiUrl+'/cars',car,{headers : this.headers});
   }
 
   
@@ -37,6 +42,7 @@ export class FormsAddDashboardService {
   getAllClients(){
     return this.Http.get(environment.apiUrl+'/clients');
   }
+    
   getCar(id:string){
     return this.Http.get(environment.apiUrl+'/cars/'+id);
   }

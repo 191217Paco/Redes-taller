@@ -35,7 +35,7 @@ export class ClientAddDashboardComponent implements OnInit {
   ngOnInit(): void {
     //this.id = parseInt(this.route.snapshot.paramMap.get("id"));
     //this.id = this.route.snapshot.paramMap.get("id");
-    
+    console.log(localStorage.getItem('token'));
     const params = this.route.snapshot.params;
     this.CADbS.getClient(params.id).subscribe(
       res => {

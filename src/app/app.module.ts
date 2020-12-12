@@ -12,6 +12,8 @@ import { ClientSeeDashboardComponent } from './client-see-dashboard/client-see-d
 import { NoteAddDashboardComponent } from './note-add-dashboard/note-add-dashboard.component';
 import { FormsAddDashboardComponent } from './forms-add-dashboard/forms-add-dashboard.component';
 import { FormsSeeDashboardComponent } from './forms-see-dashboard/forms-see-dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { FormsSeeDashboardComponent } from './forms-see-dashboard/forms-see-dash
     ClientSeeDashboardComponent,
     NoteAddDashboardComponent,
     FormsAddDashboardComponent,
-    FormsSeeDashboardComponent
+    FormsSeeDashboardComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

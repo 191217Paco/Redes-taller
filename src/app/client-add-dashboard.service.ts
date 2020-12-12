@@ -10,18 +10,23 @@ import { environment } from '../environments/environment'
 })
 export class ClientAddDashboardService {
 
-  constructor(protected Http:HttpClient) { }
+  headers = new HttpHeaders();
+  constructor(protected Http : HttpClient) { 
+    this.headers.append('Accept',"application/json")
+    this.headers.append('Authorization',"Bearer "+localStorage.getItem('token'))
+  }
+
 
   postClient(client : Cliente): Observable<any>{
-    console.log(client);
-    return this.Http.post(environment.apiUrl+'/clients',client);
+    console.log(this.headers.keys());
+    return this.Http.post(environment.apiUrl+'/clients',client,{headers:this.headers});
   }
 
   putClient(client : Cliente): Observable<any>{
-    return this.Http.put(environment.apiUrl+'/clients/'+client.id,client);
+    return this.Http.put(environment.apiUrl+'/clients/'+client.id,client,{headers:this.headers});
   }
 
   getClient(id:any){
-    return this.Http.get(environment.apiUrl+'/clients/'+id);
+    return this.Http.get(environment.apiUrl+'/clients/'+id,{headers:this.headers});
   }
 }

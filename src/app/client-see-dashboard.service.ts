@@ -7,13 +7,18 @@ import { environment } from '../environments/environment'
   providedIn: 'root'
 })
 export class ClientSeeDashboardService {
-
-  constructor(protected Http:HttpClient) { }
+  headers : any;
+  constructor(protected Http:HttpClient) { 
+    this.headers = new HttpHeaders({
+      'Accept':"application/json",
+      'Authorization':"Bearer "+localStorage.getItem('token')
+    })
+  }
 
   getClients () {
-    return this.Http.get(environment.apiUrl+'/clients')
+    return this.Http.get(environment.apiUrl+'/clients',{headers : this.headers})
   }
   deleteClient (id : string){
-    return this.Http.delete(environment.apiUrl+'/clients/'+id)
+    return this.Http.delete(environment.apiUrl+'/clients/'+id,{headers : this.headers})
   }
 }

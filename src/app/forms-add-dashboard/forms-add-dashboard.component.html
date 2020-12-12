@@ -23,9 +23,8 @@
             <div class="d-flex flex-row bd-highlight mb-3">
                 <div style="padding: 1em 2em 1em 1em;">
                     <label for="street2_id" class="control-label">Cliente</label>
-                    <select class="browser-default custom-select"  (change)="onChange($event.target.value)">
-                        <option selected="" >Selecione el Cliente</option>
-                        <option value="{{item.name}}" *ngFor="let item of clients.content"  >{{item.name}}</option>
+                    <select class="browser-default custom-select"  [(ngModel)]="selectC" name="selectC">
+                        <option value="{{item}}" *ngFor="let item of clients.content">{{item.name}}</option>
                       
                     </select>
     
@@ -42,22 +41,23 @@
                     </div>
                 </div>
                 <div>
-                    <div class="d-flex flex-row bd-highlight mb-3 ">
+                    <div>
                         <div class="d-flex flex-row bd-highlight mb-3">
                             <label for="street2_id" class="control-label">Tipo</label>
-                            <select class="browser-default custom-select">
-                                <option selected="">Service or Spart</option>
-                                <option value="1">Servicio</option>
-                                <option value="2">Refaccion</option>
+                            <select class="browser-default custom-select" name="select"  (change)="onType() " [(ngModel)]="selectT" >
+                                <option value="serv">Servicio</option>
+                                <option value="spare">Refaccion</option>
+                                
                             </select>
                             <label for="street2_id" class="control-label">Descripcion</label>
-                            <select class="browser-default custom-select">
-                                <option selected="">Selecione el Cliente</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="browser-default custom-select" [(ngModel)]="selectD"  id="selectd" name="selectD">
+                                <option value="{{item.service}}" *ngFor="let item of list.content"   >{{item.service}}</option>                                
                             </select>                                            
                         </div>                                                             
+                        
+                        <div class="form-group p-2 bd-highlight"> 
+                            <button type="submit" class="btn btn-primary" (click)=addItemsTable() >añadir</button>
+                        </div>  
                     </div>
                     <table class="table table-sm table-dark table-hover">
                         <thead>
@@ -69,11 +69,12 @@
                             <!--<th scope="col">Handle</th>-->
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody *ngFor="let item of carShoping" >
                           <tr>
                             <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
+                            <td>1</td>
+                            <td>{{item.service}}</td>
+                            <td>{{item.price}}</td>
                           </tr>
                         </tbody>
                     </table>   

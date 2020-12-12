@@ -12,10 +12,16 @@ import {  Cliente } from '../models/Client'
 export class FormsAddDashboardComponent implements OnInit {
   clients : any = [];
   services : any = [];
-  spart_parts : any = [];
+  spare_parts : any = [];
+  list : any = [];
+  carShoping : any = [];
+  
 
   cars : any = [];
   id : any; 
+  selectC = '';
+  selectT = '';
+  selectD :any;
 
   name ='';
   lastname = '';
@@ -52,13 +58,38 @@ export class FormsAddDashboardComponent implements OnInit {
     }
     
   }
-  onChange(value:any){
-    console.log(value)
+  addItemsTable(){
+    
+    const array = [];
+    
+    array.push(this.fSADbS.getService(this.selectD));
+    console.log(array);
+    this.carShoping = array;
+    
+  }
+  onType(){
+    const type =  this.selectT;
+    if(type === "serv"){
+      console.log("en servicio");
+      this.fSADbS.getAllServices().subscribe(
+        res => {
+          this.list = res;
+        }
+      )
+    }
+    if(type === "spare"){
+      console.log("en spare");
+      this.fSADbS.getAllSpare_parts().subscribe(
+        res => {
+          this.list = res;
+        }
+      )
+    }
   }
   getClients(){
     this.fSADbS.getAllClients().subscribe(
       res => {
-        this.clients = res
+        this.clients = res;
         console.log(res);
       }
     )
