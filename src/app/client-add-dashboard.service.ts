@@ -12,8 +12,8 @@ export class ClientAddDashboardService {
 
   headers = new HttpHeaders();
   constructor(protected Http : HttpClient) { 
-    this.headers.append('Accept',"application/json")
-    this.headers.append('Authorization',"Bearer "+localStorage.getItem('token'))
+    this.headers.append('Accept:',"application/json")
+    this.headers.append('Authorization:',"Bearer "+localStorage.getItem('token'))
   }
 
 
