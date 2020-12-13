@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import {  FormsAddDashboardService } from '../forms-add-dashboard.service';
+import {  FormsAddDashboardService } from '../services/forms-add-dashboard.service';
 import {  Cliente } from '../models/Client'
 
 @Component({

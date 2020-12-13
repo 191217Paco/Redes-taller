@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, inject } from '@angular/core';
 import { ActivatedRoute, Router,ParamMap, Route } from '@angular/router';
 import {  Cliente } from '../models/Client';
 import { from } from 'rxjs';
-import { ClientsService } from '../clients.service';
+import { ClientsService } from '../services/clients.service';
 
 
 @Component({

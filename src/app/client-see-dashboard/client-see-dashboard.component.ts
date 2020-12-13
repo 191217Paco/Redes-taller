@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientSeeDashboardService } from '../client-see-dashboard.service'
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClientsService } from '../clients.service';
+import { ClientsService } from '../services/clients.service';
 
 @Component({
   selector: 'app-client-see-dashboard',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../login.service'
-import {  FormsAddDashboardService } from '../forms-add-dashboard.service';
+import { LoginService } from '../services/login.service'
+import {  FormsAddDashboardService } from '../services/forms-add-dashboard.service';
 
 
 @Component({

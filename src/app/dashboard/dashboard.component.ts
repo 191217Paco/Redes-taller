@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
-import { DashboardService } from '../dashboard.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from '../models/Client';
+import { DashboardService } from '../services/dashboard.service';
 
 
 @Component({
