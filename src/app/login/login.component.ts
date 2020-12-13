@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../services/login.service'
 import {  FormsAddDashboardService } from '../services/forms-add-dashboard.service';
+import { User } from '../models/User';
 
 
 @Component({
@@ -22,9 +23,12 @@ export class LoginComponent implements OnInit {
   }
 
   validar(){
-    const login ={
-      username : this.user,
-      password : this.password
+    let login: User;
+    login = {
+      name: '',
+      lastname: '',
+      username: this.user,
+      password: this.password
     }
     this.LS.postLogin(login).subscribe(
       res =>{

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
-import { RegisterService } from '../register.service'
+import { RegisterService } from '../services/register.service'
 import { Router } from '@angular/router'
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
   }
 
   createUser(){
-    const user ={
+    const user: User ={
       name : this.name,
       lastname : this.lastname,
       username : this.username,

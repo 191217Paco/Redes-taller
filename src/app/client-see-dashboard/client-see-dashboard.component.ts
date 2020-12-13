@@ -21,7 +21,6 @@ export class ClientSeeDashboardComponent implements OnInit {
     this.clientSBdS.getClients().subscribe(
       res => {
         this.content = res;
-        console.log(res)
       },
       err => console.log(err)
     );
@@ -29,7 +28,7 @@ export class ClientSeeDashboardComponent implements OnInit {
   deleteClient(id: number) {
     this.clientSBdS.deleteClient(id).subscribe(
       res => {
-        this.getClients();
+        location.reload();
       }
     )
   }
