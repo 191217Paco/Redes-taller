@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject, inject } from '@angular/core';
-import { ActivatedRoute, Router,ParamMap, Route } from '@angular/router';
-import {  Cliente } from '../models/Client';
-import { from } from 'rxjs';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Cliente } from '../models/Client';
 import { ClientsService } from '../services/clients.service';
 
 
@@ -13,38 +12,42 @@ import { ClientsService } from '../services/clients.service';
 
 })
 export class ClientAddDashboardComponent implements OnInit {
-  clients:any = []
-  id : number =0;
-  name ='';
-  lastname = ''
-  phone = ''
-  email = ''
- 
-  edit : boolean = false;
+   
+  edit : boolean;
 
   constructor(
     protected CADbS:ClientsService, 
     public router:Router,
     private route:ActivatedRoute, 
-    
     ) 
-  { }
+  {
+    this.edit = false;
+  }
   
- 
+
+  client!: Cliente;
+  clients:any = []
+  response: any;
+  id?: number;
+  name ='';
+  lastname = ''
+  phone = ''
+  email = ''
 
   ngOnInit(): void {
-    //this.id = parseInt(this.route.snapshot.paramMap.get("id"));
-    //this.id = this.route.snapshot.paramMap.get("id");
-    console.log(localStorage.getItem('token'));
-    const params = this.route.snapshot.params;
-    this.CADbS.getClient(params.id).subscribe(
-      res => {
-        this.id = params.id;
-        this.clients = res;
+    this.route.paramMap.subscribe(parametros => {
+      if(parametros.has("id")){
         this.edit = true;
-      },
-      err => console.log(err)
-    )
+        this.CADbS.getClient(parametros.get("id")).subscribe( res => {
+          this.response = res;
+          this.id = this.response.content.id;
+          this.name = this.response.content.name;
+          this.lastname = this.response.content.lastname;
+          this.email = this.response.content.email;
+          this.phone = this.response.content.phone;
+        });
+      }
+    })
   }
 
   /*selectImage(event:any){
@@ -58,36 +61,36 @@ export class ClientAddDashboardComponent implements OnInit {
   }*/
   
   postClient(){
-    const cliente = {
-      id : this.id,
+    this.client = {
       name : this.name,
       lastname : this.lastname,
       phone : this.phone,
       email : this.email
     };
-    this.CADbS.postClient(cliente).subscribe(
+    this.CADbS.postClient(this.client).subscribe(
       res => {
         console.log(res);
         this.router.navigate([
-          '/'
+          '/home'
         ]);
       },
       err => console.log(err)
     );
   }
 
-  putClient(){    
-    const cliente = {
-      id : this.id,
+  putClient(id: any){    
+    this.client = {
+      id: id,
       name : this.name,
       lastname : this.lastname,
       phone : this.phone,
       email : this.email
     };    
-    this.CADbS.putClient(cliente).subscribe(
+    this.CADbS.putClient(this.client).subscribe(
       res => {
+        console.log(res);
         this.router.navigate([
-          '/'
+          '/home'
         ]);
       },
       err => console.log(err)

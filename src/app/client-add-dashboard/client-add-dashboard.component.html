@@ -46,8 +46,9 @@
                 (change)="selectImage($event)" placeholder="agregar imagen">
             </div>     
 -->
-            <div class="form-group p-2 bd-highlight"> 
-              <button type="submit" class="btn btn-primary" (click)="edit ? putClient():postClient()" >Salvar</button>
+            <div class="form-group p-2 bd-highlight">
+              <button *ngIf="edit" type="submit" class="btn btn-primary" (click)="putClient(id)" >Salvar</button>
+              <button *ngIf="!edit" type="submit" class="btn btn-primary" (click)="postClient()" >Salvar</button>
             </div>     
           
             

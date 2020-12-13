@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { from } from 'rxjs';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {ClientAddDashboardComponent} from './client-add-dashboard/client-add-dashboard.component';
 import { ClientSeeDashboardComponent } from './client-see-dashboard/client-see-dashboard.component'

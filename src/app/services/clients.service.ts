@@ -27,8 +27,8 @@ export class ClientsService {
     return this._http.put(environment.apiUrl+'/clients/'+client.id,client,{headers:this.headers});
   }
 
-  getClient(id:any){
-    return this._http.get(environment.apiUrl+'/clients/'+id,{headers:this.headers});
+  getClient(id:any): Observable<Cliente>{
+    return this._http.get<Cliente>(environment.apiUrl+'/clients/'+id,{headers:this.headers});
   }
 
   getClients(): Observable<any> {
