@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject, inject } from '@angular/core';
-import {  ClientAddDashboardService } from '../client-add-dashboard.service';
 import { ActivatedRoute, Router,ParamMap, Route } from '@angular/router';
 import {  Cliente } from '../models/Client';
 import { from } from 'rxjs';
+import { ClientsService } from '../clients.service';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class ClientAddDashboardComponent implements OnInit {
   edit : boolean = false;
 
   constructor(
-    protected CADbS:ClientAddDashboardService, 
+    protected CADbS:ClientsService, 
     public router:Router,
     private route:ActivatedRoute, 
     

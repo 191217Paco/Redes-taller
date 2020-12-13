@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientSeeDashboardService } from '../client-see-dashboard.service'
 
 import { ActivatedRoute, Router } from '@angular/router';
+import { ClientsService } from '../clients.service';
 
 @Component({
   selector: 'app-client-see-dashboard',
@@ -11,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ClientSeeDashboardComponent implements OnInit {
 
   content: any = [];
-  constructor(public clientSBdS: ClientSeeDashboardService, public router: Router) { }
+  constructor(public clientSBdS: ClientsService, public router: Router) { }
 
   ngOnInit(): void {
     this.getClients();
@@ -26,7 +27,7 @@ export class ClientSeeDashboardComponent implements OnInit {
       err => console.log(err)
     );
   }
-  deleteClient(id: string) {
+  deleteClient(id: number) {
     this.clientSBdS.deleteClient(id).subscribe(
       res => {
         this.getClients();
