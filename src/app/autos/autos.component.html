@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <form>
+                <select name="selectClient" class="form-select" [(ngModel)]="clienteSelected" (ngModelChange)="onChange($event)">
+                    <option *ngFor="let cliente of clients" [value]="cliente.id">
+                        {{cliente.name}} {{cliente.lastname}}
+                    </option>
+                </select>
+                <button class="btn-info" (click)="addCar()">
+                    Añadir
+                </button>
+            </form>
+        </div>
+        <div class="col-8">
+            <form>
+                <label class="form-label">Marca</label>
+                <input class="form-control" name="carMarca" type="text" [(ngModel)]="carMarca" [disabled]="!edicion">
+                <label class="form-label">Modelo</label>
+                <input class="form-control" name="modelCar" type="text" [(ngModel)]="carModel" [disabled]="!edicion">
+                <button class="btn-info" (click)="saveCar()">Salvar</button>
+                <button class="btn-danger" (click)="delCar()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>

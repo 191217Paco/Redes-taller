@@ -6,6 +6,7 @@ import { ClientSeeDashboardComponent } from './client-see-dashboard/client-see-d
 import { FormsAddDashboardComponent } from './forms-add-dashboard/forms-add-dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component'
+import { AutosComponent } from './autos/autos.component';
 const routes: Routes = [
 
   {
@@ -41,6 +42,11 @@ const routes: Routes = [
   {
     path:'register',
     component: RegisterComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'autos',
+    component: AutosComponent,
     pathMatch: 'full'
   }
 ];

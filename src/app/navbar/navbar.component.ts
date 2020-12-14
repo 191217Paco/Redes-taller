@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,16 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() {   }
+  constructor(protected _activatedRoute: ActivatedRoute) {   }
 
   login?: boolean;
 
   ngOnInit(): void {
-    if(window.location.pathname == "/"){
-      this.login = true;
-    }else{
-      this.login = false;
-    }
+    this._activatedRoute.paramMap.subscribe((params: ParamMap) =>{
+      if(window.location.pathname == "/"){
+        this.login = true;
+      }else{
+        this.login = false;
+      }
+    });
+  }
+
+  logout(){
+    localStorage.clear();
   }
 
 }

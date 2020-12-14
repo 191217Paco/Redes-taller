@@ -33,9 +33,7 @@ export class LoginComponent implements OnInit {
     this.LS.postLogin(login).subscribe(
       res =>{
         localStorage.setItem("token",res['token']);
-        this.router.navigate([
-          '/home'
-        ]);
+        window.location.href="http://localhost:4200/home"
       }
     )
   }

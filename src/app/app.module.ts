@@ -15,6 +15,7 @@ import { FormsSeeDashboardComponent } from './forms-see-dashboard/forms-see-dash
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AutosComponent } from './autos/autos.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsSeeDashboardComponent,
     LoginComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    AutosComponent
   ],
   imports: [
     BrowserModule,

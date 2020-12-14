@@ -11,7 +11,7 @@
             <a (click)="deleteClient(client.id)" class="btn btn-danger">Eliminar</a>
           </div>
           <div class="form-group p-2 bd-highlight"> 
-            <!-- <a [routerLink]="['/addEdit',client.id]" class="btn btn-info "  >Editar</a>-->
+            <a href="/addEdit/{{client.id}}" class="btn btn-warning">Editar</a>
           </div>
         </div>
       </div>
