@@ -17,11 +17,11 @@ export class FormsAddDashboardService {
     })
   }
 
-  postClient(client : Cliente): Observable<any>{
+  postClient(client : any): Observable<any>{
     return this.Http.post( environment.apiUrl+'/clients',client,{headers : this.headers});
   }
   
-  postCar(car : Car): Observable<any>{
+  postCar(car : any): Observable<any>{
     return this.Http.post(environment.apiUrl+'/cars',car,{headers : this.headers});
   }
 
