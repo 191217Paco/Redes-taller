@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class FormsAddDashboardService {
-  headers : any;
+  headers : HttpHeaders;
   constructor(protected Http : HttpClient) { 
     this.headers = new HttpHeaders({
       'Accept':"application/json",
@@ -29,34 +29,34 @@ export class FormsAddDashboardService {
   
 
   putClient(client : Cliente): Observable<any>{
-    return this.Http.put( environment.apiUrl+'/clients/'+client.id,client);
+    return this.Http.put( environment.apiUrl+'/clients/'+client.id,client,{headers : this.headers});
   }
   putCar(car : Car): Observable<any>{
-    return this.Http.put(environment.apiUrl+'/cars/'+car.id,car);
+    return this.Http.put(environment.apiUrl+'/cars/'+car.id,car,{headers : this.headers});
   }
 
 
   getClient(id:any){
-    return this.Http.get(environment.apiUrl+'/clients/'+id);
+    return this.Http.get(environment.apiUrl+'/clients/'+id,{headers : this.headers});
   }
   getAllClients(){
-    return this.Http.get(environment.apiUrl+'/clients');
+    return this.Http.get(environment.apiUrl+'/clients',{headers : this.headers});
   }
     
   getCar(id:string){
-    return this.Http.get(environment.apiUrl+'/cars/'+id);
+    return this.Http.get(environment.apiUrl+'/cars/'+id,{headers : this.headers});
   }
   getService(id : any){
-    return this.Http.get(environment.apiUrl+'/services/'+id);
+    return this.Http.get(environment.apiUrl+'/services/'+id,{headers : this.headers});
   }
   getAllServices(){
-    return this.Http.get(environment.apiUrl+'/services');
+    return this.Http.get(environment.apiUrl+'/services',{headers : this.headers});
   } 
   getSpare_part(id:any){
-    return this.Http.get(environment.apiUrl+'/spare_parts/'+id);
+    return this.Http.get(environment.apiUrl+'/parts/'+id,{headers : this.headers});
   }
   getAllSpare_parts(){
-    return this.Http.get(environment.apiUrl+'/spare_parts');
+    return this.Http.get(environment.apiUrl+'/parts',{headers : this.headers});
   }
 
 

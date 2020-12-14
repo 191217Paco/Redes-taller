@@ -14,6 +14,7 @@ import { FormsAddDashboardComponent } from './forms-add-dashboard/forms-add-dash
 import { FormsSeeDashboardComponent } from './forms-see-dashboard/forms-see-dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RegisterComponent } from './register/register.component';
     FormsAddDashboardComponent,
     FormsSeeDashboardComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
