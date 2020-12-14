@@ -43,35 +43,12 @@
                             <button type="submit" class="btn btn-primary" (click)=addItemsTable() >añadir</button>
                         </div>  
                     </div>
-                    <table class="table table-sm table-dark table-hover">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Descripcion</th>
-                            <th scope="col">Precio</th>
-                            <!--<th scope="col">Handle</th>-->
-                          </tr>
-                        </thead>
-                        <tbody *ngFor="let item of carShoping" >
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>1</td>
-                            <td>{{item.service}}</td>
-                            <td>{{item.price}}</td>
-                          </tr>
-                        </tbody>
-                    </table>   
                 </div>
             </div>
-
-
 
             <div class="form-group p-2 bd-highlight"> 
               <button type="submit" class="btn btn-primary" (click)="edit ?  putNote() : postNote()" >Salvar</button>
             </div>     
-          
-            
         </form>
     </div>
 </div>
