@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { identifierModuleUrl } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -41,6 +42,10 @@ export class ClientsService {
 
   addCar(car: Car): Observable<any>{
     return this._http.post(environment.apiUrl+'/cars',car,{headers: this.headers});
+  }
+
+  getCar(id: number): Observable<any>{
+    return this._http.get<any>(environment.apiUrl+'/cars/'+id,{headers: this.headers});
   }
 
   deleteCar(id: any): Observable<any>{

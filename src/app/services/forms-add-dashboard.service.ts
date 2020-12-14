@@ -58,8 +58,4 @@ export class FormsAddDashboardService {
   getAllSpare_parts(){
     return this.Http.get(environment.apiUrl+'/parts',{headers : this.headers});
   }
-
-
-
-
 }

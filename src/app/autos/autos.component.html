@@ -18,9 +18,19 @@
                 <input class="form-control" name="carMarca" type="text" [(ngModel)]="carMarca" [disabled]="!edicion">
                 <label class="form-label">Modelo</label>
                 <input class="form-control" name="modelCar" type="text" [(ngModel)]="carModel" [disabled]="!edicion">
-                <button class="btn-info" (click)="saveCar()">Salvar</button>
-                <button class="btn-danger" (click)="delCar()">Cancelar</button>
+                <button class="btn-info" (click)="saveCar()" [disabled]="!edicion">Salvar</button>
+                <button class="btn-danger" (click)="delCar()" [disabled]="!edicion">Cancelar</button>
             </form>
+        </div>
+    </div>
+    <div class="row" *ngIf="isClientSelected">
+        <div class="col-4">
+            <select name="selectCar" class="form-select" [(ngModel)]="carSelected" (ngModelChange)="carChange($event)">
+                <option *ngFor="let car of autosCliente" [value]="car.id">
+                    {{car.marca}} {{car.model_car}}
+                </option>
+            </select>
+            <button class="btn-danger" (click)="edit()">Borrar</button>
         </div>
     </div>
 </div>

@@ -31,8 +31,11 @@
                                 
                             </select>
                             <label for="street2_id" class="control-label">Descripcion</label>
-                            <select class="browser-default custom-select" [(ngModel)]="selectD"  id="selectd" name="selectD">
-                                <option value="{{item.service}}" *ngFor="let item of list.content"   >{{item.service}}</option>                                
+                            <select *ngIf="serv" class="browser-default custom-select" [(ngModel)]="selectD"  id="selectd" name="selectD">
+                                <option value="{{item.service}}" *ngFor="let item of list.content"   >{{item.service}}</option>                            
+                            </select>
+                            <select *ngIf="!serv" class="browser-default custom-select" [(ngModel)]="selectD"  id="selectd" name="selectD">
+                                <option value="{{item.name}}" *ngFor="let item of list.content"   >{{item.name}}</option>                                
                             </select>                                            
                         </div>                                                             
                         

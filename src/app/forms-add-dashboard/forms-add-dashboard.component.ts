@@ -34,6 +34,7 @@ export class FormsAddDashboardComponent implements OnInit {
 
   edit : boolean = false;
 
+  serv: boolean;
   
 
 
@@ -41,7 +42,9 @@ export class FormsAddDashboardComponent implements OnInit {
     protected fSADbS : FormsAddDashboardService,
     public router : Router,
     public activateRouter : ActivatedRoute
-  ) { }
+  ) {
+    this.serv = true;
+   }
 
   ngOnInit(): void {
     this.getClients();
@@ -70,6 +73,7 @@ export class FormsAddDashboardComponent implements OnInit {
   onType(){
     const type =  this.selectT;
     if(type === "serv"){
+      this.serv = true;
       console.log("en servicio");
       this.fSADbS.getAllServices().subscribe(
         res => {
@@ -78,6 +82,7 @@ export class FormsAddDashboardComponent implements OnInit {
       )
     }
     if(type === "spare"){
+      this.serv = false;
       console.log("en spare");
       this.fSADbS.getAllSpare_parts().subscribe(
         res => {
@@ -117,7 +122,6 @@ export class FormsAddDashboardComponent implements OnInit {
       model_car : this.model_car,
       client_id : this.client_id
     }
-    car.client_id = this.client_id;
     console.log(car);
     this.fSADbS.postCar(car).subscribe(
       res => {

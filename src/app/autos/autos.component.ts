@@ -12,38 +12,45 @@ export class AutosComponent implements OnInit {
 
   constructor(protected _ClientService: ClientsService) {
     this.edicion = false;
+    this.isClientSelected = false;
     this.carModel = "";
     this.carMarca = "";
    }
+  isClientSelected: boolean;
   clients:any;
   clienteSelected?: any;
-  autosCliente?: any;
-  carSelected: any;
+  autosCliente?: Car[];
+  carSelected?: Car;
   edicion: boolean;
   actualClient?: number;
-
+  actualCar?: number;
+  carEdit?: Car;
   carModel: string;
   carMarca: string;
   ngOnInit(): void {
     this._ClientService.getClients().subscribe(res =>{
-      this.clients = res['content'];
+     const content = res;
+     this.clients = content.content;
     })
   }
 
   onChange(obj: any){
     this.actualClient = obj;
     this._ClientService.getClient(obj).subscribe(res =>{
-      console.log(res);
-      this.clienteSelected = res;
-      this.autosCliente = this.clienteSelected.cars;
-      console.log(this.autosCliente);
+      const content = res;
+      this.autosCliente = content.content.cars;
     });
+    this.isClientSelected = true;
   }
 
-  carChange(obj: any){
-    this.carSelected = obj;
-    this.carModel = this.carSelected.model_car;
-    this.carMarca = this.carSelected.marca
+  carChange(obj: number){
+    this.actualCar = obj;
+    this._ClientService.getCar(this.actualCar).subscribe(res=>{
+      const content = res;
+      this.carEdit = content.content;
+      this.carModel = content.content.model_car;
+      this.carMarca = content.content.marca;
+    })
   }
 
   addCar(){
@@ -67,7 +74,15 @@ export class AutosComponent implements OnInit {
     }
     this._ClientService.addCar(car).subscribe(res => {
       console.log(res);
+      window.location.reload();
     });
+  }
+
+  edit(){
+    this._ClientService.deleteCar(this.actualCar).subscribe( res => {
+      console.log(res);
+      window.location.reload();
+    })
   }
 
 }
